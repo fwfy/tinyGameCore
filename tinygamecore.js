@@ -199,6 +199,7 @@ class tgc_pbomb extends tgc_entity {
         this.shards = shards;
         // console.log("this pbomb gets " + this.shards + " shards");
         this.exploded = false;
+        this.collisionWhitelist = ["shrapnel","drifter"];
     }
     phys(friction,move) {
         if(!this.collidedLast) this.collidedLast = [];
@@ -206,7 +207,7 @@ class tgc_pbomb extends tgc_entity {
         this.oY = this.y;
         super.momentumWithBounds(friction,move);
         this.collidingObjects.forEach(e => {
-            if(e.type === "player" || e.type === "drifter") {
+            if(e.type === "player" || e.type === "drifter" || e.type === "shrapnel") {
                 this.xv = e.xv*5;
                 this.yv = e.yv*5;
                 e.xv *= -2;
