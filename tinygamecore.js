@@ -6,6 +6,7 @@ console.log("hello from tinyGameCore.js");
 
 var tinyGameCore = {
     resize: true,
+    running: false,
     showColliders: false,
     colorOnCollision: false,
     keymap: new Set(),
@@ -466,6 +467,9 @@ tinyGameCore.update = _ => {
     tinyGameCore.fpsTrack++;
 }
 
+tinyGameCore.useCanvas = c => {
+    tinyGameCore.ctx = document.getElementById(c).getContext("2d");
+}
 
 tinyGameCore.start = _ => {
     tinyGameCore.update();
@@ -474,9 +478,11 @@ tinyGameCore.start = _ => {
         tinyGameCore.fpsTrack = 0;
     },1000);
     tinyGameCore.interval = setInterval(tinyGameCore.update,1000/tinyGameCore.maxFPS);
+    tinyGameCore.running = true;
 }
 
 
 tinyGameCore.stop = _ => {
     clearInterval(tinyGameCore.interval);
+    tinyGameCore.running = false;
 }
