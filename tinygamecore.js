@@ -25,7 +25,8 @@ var tinyGameCore = {
     camOffsetY: 0,
     maxFPS: 120,
     fpsTrack: 0,
-    fps: 0
+    fps: 0,
+    logFPS: false
 };
 
 class tgc_entity {
@@ -476,6 +477,7 @@ tinyGameCore.start = _ => {
     setInterval(_=>{
         tinyGameCore.fps = tinyGameCore.fpsTrack;
         tinyGameCore.fpsTrack = 0;
+        if(tinyGameCore.logFPS) console.log("FPS:",tinyGameCore.fps);
     },1000);
     tinyGameCore.interval = setInterval(tinyGameCore.update,1000/tinyGameCore.maxFPS);
     tinyGameCore.running = true;
