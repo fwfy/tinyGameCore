@@ -450,8 +450,8 @@ tinyGameCore.doPhysicsAll = _ => {
 tinyGameCore.rumble = (lvl=1) => {
     for(let i = 0; i < 50; i++) {
         setTimeout(_=>{
-            tinyGameCore.camOffsetX = randRecoil()*lvl-1;
-            tinyGameCore.camOffsetY = randRecoil()*lvl-1;
+            tinyGameCore.camOffsetX += randRecoil()*lvl-1;
+            tinyGameCore.camOffsetY += randRecoil()*lvl-1;
         },i*10);
     }
     setTimeout(_=>{
