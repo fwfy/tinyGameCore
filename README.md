@@ -1,10 +1,11 @@
 # tinyGameCore
 A game engine written in JS for HTML5/JS games in the browser.
 
-# Get started
+# Getting Started
 To get started with tinyGameCore, you can use the below code to load it in via jsdelivr:  
 `<script src="https://cdn.jsdelivr.net/gh/fwfy/tinyGameCore/tinygamecore.js"></script>`
-Then, you need to provide tinyGameCore with a `<canvas>` element to draw on, by doing `tinyGameCore.useCanvas("game_canvas");`. Make sure to replace "game_canvas" with the actual DOM ID of your canvas.
+
+Then, you need to provide tinyGameCore with a `<canvas>` element to draw on, by doing `tinyGameCore.useCanvas("game_canvas");`. Make sure to replace "game_canvas" with the actual DOM ID of your canvas, and that the canvas is loaded (tip: use `defer` on your `script` tag)
 
 By default, tinyGameCore will scale the canvas to fit the screen (assuming no margins). You might not want this, so to disable it, you can set the `tinyGameCore.resize` property to `false`. Keep in mind that the playarea will always scale to the canvas, and this cannot be disabled. Make sure to try not to scale down the canvas after you've started tinyGameCore, as this can cause some sprites to get stuck outside the border.
   
@@ -29,7 +30,7 @@ tinyGameCore.useCanvas("game_canvas");
 tinyGameCore.start();
 ```
 
-# How to use keyActions
+# How to use keyActions.
 So, you have a game now. That's great! But it could be greater.
 
 Let's say you wanted to make a pause feature. When you press `P`, the game should pause, press it, and it will unpause again.
@@ -79,4 +80,4 @@ tinyGameCore.keyActions.p = {
 }
 ```
 
-*The above is only a simple example on how you could use the `keyActions` object. You can really make it run any code you want, with no limitations, at the press of a button*
+*The above is only a simple example on how you could use the `keyActions` object. You can really make it run any code you want, with no limitations, at the press of a button.*
