@@ -4,7 +4,6 @@ A game engine written in JS for HTML5/JS games in the browser.
 # Get started
 To get started with tinyGameCore, you can use the below code to load it in via jsdelivr:  
 `<script src="https://cdn.jsdelivr.net/gh/fwfy/tinyGameCore/tinygamecore.js"></script>`
-(NOTE: This MUST be at the very end of the `<body>` tag.)  
 Then, you need to provide tinyGameCore with a `<canvas>` element to draw on, by doing `tinyGameCore.useCanvas("game_canvas");`. Make sure to replace "game_canvas" with the actual DOM ID of your canvas.
 
 By default, tinyGameCore will scale the canvas to fit the screen (assuming no margins). You might not want this, so to disable it, you can set the `tinyGameCore.resize` property to `false`. Keep in mind that the playarea will always scale to the canvas, and this cannot be disabled. Make sure to try not to scale down the canvas after you've started tinyGameCore, as this can cause some sprites to get stuck outside the border.
@@ -16,11 +15,11 @@ Now that `tinyGameCore.ctx` is set, you are ready to start the game loop. To do 
 ```html
 <head>
     <title>tinyGameCore demo</title>
+    <script src="https://cdn.jsdelivr.net/gh/fwfy/tinyGameCore/tinygamecore.js"></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <canvas id="game_canvas" width=500 height=500></canvas>
-    <script src="https://cdn.jsdelivr.net/gh/fwfy/tinyGameCore/tinygamecore.js"></script>
-    <script src="index.js"></script>
 </body>
 ```
 
