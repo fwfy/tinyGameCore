@@ -26,7 +26,8 @@ var tinyGameCore = {
     maxFPS: 120,
     fpsTrack: 0,
     fps: 0,
-    logFPS: false
+    logFPS: false,
+    speedLimit: 500
 };
 
 class tgc_entity {
@@ -53,10 +54,11 @@ class tgc_entity {
         if(this.age === this.maxAge) this.destroy();
         this.xv *= friction;
         this.yv *= friction;
-        /* if(this.xv > 50) this.xv = 50;
-        if(this.xv < -50) this.xv = -50;
-        if(this.yv > 50) this.yv = 50;
-        if(this.yv < -50) this.yv = -50; */
+        if(this.xv > tinyGameCore.speedLimit) this.xv = tinyGameCore.speedLimit;
+	if(this.xv < -tinyGameCore.speedLimit) this.xv = -tinyGameCore.speedLimit;
+	if(this.xv > tinyGameCore.speedLimit) this.yv = tinyGameCore.speedLimit;
+	if(this.xv < -tinyGameCore.speedLimit) this.yv = -tinyGameCore.speedLimit;
+	
         if(move) {
             this.x += this.xv;
             this.y += this.yv;
